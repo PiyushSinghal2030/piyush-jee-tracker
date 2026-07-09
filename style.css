@@ -912,3 +912,56 @@ body {
     display: none !important; /* मोबाइल पर पार्टिकल्स बंद करने से परफॉरमेंस 40% सुधर जाएगी */
   }
 }
+/* MOBILE STABILITY & PERFORMANCE FIXED */
+@media (max-width: 768px) {
+  /* स्क्रीन से बाहर भागने वाली चीजों को रोकना */
+  body, html {
+    overflow-x: hidden !important;
+  }
+  
+  .app-container {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow-y: auto !important;
+    padding: 8px !important;
+  }
+
+  /* साइडबार को मोबाइल में ऊपर हॉरिजॉन्टल स्क्रॉल में सेट करना */
+  aside {
+    width: 100% !important;
+    height: auto !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding: 8px !important;
+    background: #0d1117 !important;
+  }
+
+  .nav-item {
+    display: inline-flex !important;
+    margin: 0 5px !important;
+    padding: 6px 12px !important;
+    font-size: 12px !important;
+  }
+
+  /* टाइमर को परफेक्ट 1-कॉलम लेआउट देना */
+  .countdown-container {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .timer-box div span {
+    font-size: 22px !important; /* साइज छोटा किया ताकि मोबाइल में फिट रहे */
+  }
+
+  /* बाकी सारे ग्रिड्स को एक लाइन में सेट करना */
+  .metrics-grid, .checklist-grid, #physics-accordion, #chemistry-accordion, #maths-accordion {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* मोबाइल पर कैनवस एनीमेशन बंद करना ताकि प्रोसेसर फ्री रहे और लैग न हो */
+  #particle-canvas {
+    display: none !important;
+  }
+}
