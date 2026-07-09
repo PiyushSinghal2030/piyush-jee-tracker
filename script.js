@@ -542,7 +542,7 @@ function runLiveTimerLoops() {
         Math.floor((dMain % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       ).padStart(2, "0");
       document.getElementById("main-mins").innerText = String(
-        Math.floor((dMain % (1000 * 60 * 60)) / (1000 * 60)),
+        Math.floor((dMain % (1000 * 60)) / (1000)),
       ).padStart(2, "0");
       document.getElementById("main-secs").innerText = String(
         Math.floor((dMain % (1000 * 60)) / 1000),
