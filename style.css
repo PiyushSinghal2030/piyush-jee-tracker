@@ -824,3 +824,32 @@ body {
     text-align: center;
   }
 }
+
+/* BREAKPOINT FOR MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow-y: auto;
+  }
+
+  /* साइडबार को मोबाइल में टॉप या बॉटम मेनू बनाना */
+  aside {
+    width: 100% !important;
+    height: auto !important;
+    padding: 10px !important;
+    flex-direction: row !important;
+    overflow-x: auto;
+  }
+
+  /* टाइमर और प्रोग्रेस सर्कल्स को एक के नीचे एक सेट करना */
+  .countdown-container, .metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 15px !important;
+  }
+
+  /* सर्कुलर ग्राफ का साइज छोटा करना ताकि स्क्रीन में फिट आए */
+  .circle-graph {
+    transform: scale(0.9);
+  }
+}
