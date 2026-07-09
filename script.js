@@ -526,48 +526,47 @@ function renderTimelineLogs() {
 }
 
 // TARGET LIVE REALTIME COUNTDOWN REVERSE LOOPS
+// TARGET LIVE REALTIME COUNTDOWN REVERSE LOOPS (OPTIMIZED & BUG-FREE)
 function runLiveTimerLoops() {
   const mainTarget = new Date("January 20, 2027 00:00:00").getTime();
   const advTarget = new Date("May 18, 2027 00:00:00").getTime();
 
+  // कैशिंग DOM एलिमेंट्स ताकि हर सेकंड लैग न हो
+  const elMainDays = document.getElementById("main-days");
+  const elMainHours = document.getElementById("main-hours");
+  const elMainMins = document.getElementById("main-mins");
+  const elMainSecs = document.getElementById("main-secs");
+
+  const elAdvDays = document.getElementById("adv-days");
+  const elAdvHours = document.getElementById("adv-hours");
+  const elAdvMins = document.getElementById("adv-mins");
+  const elAdvSecs = document.getElementById("adv-secs");
+  const elLiveClock = document.getElementById("live-clock");
+
   function cycle() {
     const now = Date.now();
 
+    // JEE Main Countdown Calculations
     let dMain = mainTarget - now;
     if (dMain > 0) {
-      document.getElementById("main-days").innerText = String(
-        Math.floor(dMain / (1000 * 60 * 60 * 24)),
-      ).padStart(3, "0");
-      document.getElementById("main-hours").innerText = String(
-        Math.floor((dMain % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      ).padStart(2, "0");
-      document.getElementById("main-mins").innerText = String(
-        Math.floor((dMain % (1000 * 60)) / 1000),
-      ).padStart(2, "0");
-      document.getElementById("main-secs").innerText = String(
-        Math.floor((dMain % (1000 * 60)) / 1000),
-      ).padStart(2, "0");
+      elMainDays.innerText = String(Math.floor(dMain / (1000 * 60 * 60 * 24))).padStart(3, "0");
+      elMainHours.innerText = String(Math.floor((dMain % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
+      elMainMins.innerText = String(Math.floor((dMain % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
+      elMainSecs.innerText = String(Math.floor((dMain % (1000 * 60)) / 1000)).padStart(2, "0");
     }
 
+    // JEE Advanced Countdown Calculations (FIXED MATH)
     let dAdv = advTarget - now;
     if (dAdv > 0) {
-      document.getElementById("adv-days").innerText = String(
-        Math.floor(dAdv / (1000 * 60 * 60 * 24)),
-      ).padStart(3, "0");
-      document.getElementById("adv-hours").innerText = String(
-        Math.floor((dAdv % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-      ).padStart(2, "0");
-      document.getElementById("adv-mins").innerText = String(
-        Math.floor((dAdv % (1000 * 60 * 60)) / (1000 * 60)),
-      ).padStart(2, "0");
-      document.getElementById("adv-secs").innerText = String(
-        Math.floor((dAdv % (1000 * 60 * 60)) / 1000),
-      ).padStart(2, "0");
+      elAdvDays.innerText = String(Math.floor(dAdv / (1000 * 60 * 60 * 24))).padStart(3, "0");
+      elAdvHours.innerText = String(Math.floor((dAdv % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))).padStart(2, "0");
+      elAdvMins.innerText = String(Math.floor((dAdv % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, "0");
+      elAdvSecs.innerText = String(Math.floor((dAdv % (1000 * 60)) / 1000)).padStart(2, "0");
     }
 
-    document.getElementById("live-clock").innerText =
-      new Date().toLocaleTimeString();
+    if (elLiveClock) elLiveClock.innerText = new Date().toLocaleTimeString();
   }
+  
   setInterval(cycle, 1000);
   cycle();
 }
