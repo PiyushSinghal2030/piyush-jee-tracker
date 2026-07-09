@@ -558,7 +558,7 @@ function runLiveTimerLoops() {
         Math.floor((dAdv % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
       ).padStart(2, "0");
       document.getElementById("adv-mins").innerText = String(
-        Math.floor((dAdv % (1000 * 60 * 60)) / (1000 * 60)),
+        Math.floor((dAdv % (1000 * 60)) / (1000)),
       ).padStart(2, "0");
       document.getElementById("adv-secs").innerText = String(
         Math.floor((dAdv % (1000 * 60 * 60)) / 1000),
