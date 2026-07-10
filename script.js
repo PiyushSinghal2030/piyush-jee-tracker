@@ -424,18 +424,19 @@ function createChapterCard(subject, chapterName, checklistItems) {
   const card = document.createElement("div");
   card.className = "accordion-item";
 
-  // Evaluate initial item state variables
-  let totalItems = checklistItems.length;
+  let totalItems = checklistItems ? checklistItems.length : 0;
   let completedCount = 0;
-  let completedBubblesHTML = ""; // पूरे हुए टास्क के बबल्स को स्टोर करने के लिए
+  let completedBubblesHTML = ""; 
 
-  checklistItems.forEach((item) => {
-    if (coreState.syllabus[`${subject}_${chapterName}_${item}`]) {
-      completedCount++;
-      // अगर पहले से टास्क पूरा है, तो उसका 3D रैक्टेंगुलर बबल यहाँ जोड़ें
-      completedBubblesHTML += `<span class="status-bubble">${item}</span>`;
-    }
-  });
+  if (totalItems > 0) {
+    checklistItems.forEach((item) => {
+      // Safe check: अगर coreState या syllabus गायब हो तो क्रैश न हो
+      if (coreState && coreState.syllabus && coreState.syllabus[`${subject}_${chapterName}_${item}`]) {
+        completedCount++;
+        completedBubblesHTML += `<span class="status-bubble">${item}</span>`;
+      }
+    });
+  }
   
   let percentage = totalItems > 0 ? Math.round((completedCount / totalItems) * 100) : 0;
 
@@ -453,9 +454,8 @@ function createChapterCard(subject, chapterName, checklistItems) {
         </div>
         <div class="accordion-content">
             <div class="checklist-grid">
-                ${checklistItems
-                  .map((item) => {
-                    let checked = coreState.syllabus[`${subject}_${chapterName}_${item}`] ? "checked" : "";
+                ${totalItems > 0 ? checklistItems.map((item) => {
+                    let checked = (coreState && coreState.syllabus && coreState.syllabus[`${subject}_${chapterName}_${item}`]) ? "checked" : "";
                     return `
                         <label class="checkbox-container">
                             <input type="checkbox" ${checked} data-subj="${subject}" data-chap="${chapterName}" data-item="${item}" onchange="handleCheckboxToggle(this)">
@@ -463,8 +463,7 @@ function createChapterCard(subject, chapterName, checklistItems) {
                             <span>${item}</span>
                         </label>
                     `;
-                  })
-                  .join("")}
+                  }).join("") : ""}
             </div>
         </div>
     `;
