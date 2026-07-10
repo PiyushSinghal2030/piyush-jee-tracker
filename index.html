@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>⚡ CORE_AI // IIT-AIR-1000_ENGINE</title>
+        <meta name="description"
+            content="Piyush Jee Tracker 123401 - Premium IIT AIR under 1000 Preparation OS Dashboard">
+        <meta name="keywords"
+            content="Piyush Jee Tracker 123401, JEE Tracker, IIT Delhi, AIR 1000">
+        <link rel="stylesheet" href="style.css">
+        <link rel="manifest" href="manifest.json">
+        <meta name="theme-color" content="#0d0e12">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    </head>
+    <body class="theme-neon-blue">
+        <div class="mouse-spotlight"></div>
+        <canvas id="particle-canvas"></canvas>
+
+        <div id="ai-loader">
+            <div class="loader-content">
+                <h1 class="glitch"
+                    data-text="CORE_AI_BOOTING">CORE_AI_BOOTING</h1>
+                <div class="loader-bar-container">
+                    <div class="loader-bar"></div>
+                </div>
+                <p class="loader-status">INITIALIZING NEURAL NETWORKS FOR AIR
+                    &lt; 1000...</p>
+            </div>
+        </div>
+
+        <div class="app-container hidden">
+            <header class="top-header">
+                <div class="header-left">
+                    <span class="system-tag"><i
+                            class="fa-solid fa-terminal pulse-glow"></i> STATUS:
+                        ACTIVE</span>
+                    <span class="system-tag user-tag"><i
+                            class="fa-solid fa-user-shield"></i>
+                        ASPIRANT_AIR_1000</span>
+                </div>
+                <div class="header-center">
+                    <div class="quote-container">
+                        <p
+                            id="motivational-quote">"Loading tactical protocol..."</p>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="system-time" id="live-clock">00:00:00 PM</div>
+                </div>
+            </header>
+
+            <section class="countdown-grid">
+                <div class="countdown-card main-target">
+                    <div class="card-fire-border"></div>
+                    <h3><i class="fa-solid fa-circle-radiation text-orange"></i>
+                        JEE MAIN 2027 T-MINUS</h3>
+                    <div class="countdown-timer" id="timer-main">
+                        <div class="time-block"><span class="num"
+                                id="main-days">000</span><span
+                                class="lbl">DAYS</span></div>
+                        <div class="time-block"><span class="num"
+                                id="main-hours">00</span><span
+                                class="lbl">HRS</span></div>
+                        <div class="time-block"><span class="num"
+                                id="main-mins">00</span><span
+                                class="lbl">MINS</span></div>
+                        <div class="time-block"><span class="num"
+                                id="main-secs">00</span><span
+                                class="lbl">SECS</span></div>
+                    </div>
+                </div>
+                <div class="countdown-card advanced-target">
+                    <div class="card-fire-border"></div>
+                    <h3><i class="fa-solid fa-bolt text-red"></i> JEE ADVANCED
+                        2027 TARGET</h3>
+                    <div class="countdown-timer" id="timer-adv">
+                        <div class="time-block"><span class="num"
+                                id="adv-days">000</span><span
+                                class="lbl">DAYS</span></div>
+                        <div class="time-block"><span class="num"
+                                id="adv-hours">00</span><span
+                                class="lbl">HRS</span></div>
+                        <div class="time-block"><span class="num"
+                                id="adv-mins">00</span><span
+                                class="lbl">MINS</span></div>
+                        <div class="time-block"><span class="num"
+                                id="adv-secs">00</span><span
+                                class="lbl">SECS</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="layout-body">
+                <aside class="sidebar">
+                    <nav class="nav-menu">
+                        <button class="nav-item active"
+                            data-tab="dashboard-tab"><i
+                                class="fa-solid fa-chart-pie"></i>
+                            <span>Dashboard</span></button>
+                        <button class="nav-item" data-tab="updates-tab"><i
+                                class="fa-solid fa-clock-rotate-left"></i>
+                            <span>Timeline Logs</span></button>
+                        <button class="nav-item" data-tab="physics-tab"><i
+                                class="fa-solid fa-atom"></i>
+                            <span>Physics</span></button>
+                        <button class="nav-item" data-tab="chemistry-tab"><i
+                                class="fa-solid fa-flask-vial"></i>
+                            <span>Chemistry</span></button>
+                        <button class="nav-item" data-tab="maths-tab"><i
+                                class="fa-solid fa-calculator"></i>
+                            <span>Mathematics</span></button>
+                        <button class="nav-item" data-tab="tasks-tab"><i
+                                class="fa-solid fa-list-check"></i> <span>Task
+                                Engine</span></button>
+                        <button class="nav-item" data-tab="rules-tab"><i
+                                class="fa-solid fa-diagram-project"></i>
+                            <span>Syllabus Protocol</span></button>
+                        <button class="nav-item" data-tab="settings-tab"><i
+                                class="fa-solid fa-sliders"></i> <span>System
+                                Config</span></button>
+                    </nav>
+                </aside>
+
+                <main class="content-viewport">
+
+                    <section id="dashboard-tab" class="tab-pane active">
+                        <h2 class="section-title">// SYSTEM METRICS &
+                            PERFORMANCE GRAPH</h2>
+                        <div class="metrics-grid">
+                            <div class="metric-card">
+                                <div class="circle-progress" id="graph-overall"
+                                    data-percent="0">
+                                    <svg><circle cx="60" cy="60"
+                                            r="50"></circle><circle cx="60"
+                                            cy="60" r="50"
+                                            class="progress-bar-svg"></circle></svg>
+                                    <span class="percentage">0%</span>
+                                </div>
+                                <h4>GLOBAL COMPLETION</h4>
+                            </div>
+                            <div class="metric-card">
+                                <div class="circle-progress" id="graph-physics"
+                                    data-percent="0">
+                                    <svg><circle cx="60" cy="60"
+                                            r="50"></circle><circle cx="60"
+                                            cy="60" r="50"
+                                            class="progress-bar-svg"></circle></svg>
+                                    <span class="percentage">0%</span>
+                                </div>
+                                <h4>PHYSICS CORE</h4>
+                            </div>
+                            <div class="metric-card">
+                                <div class="circle-progress"
+                                    id="graph-chemistry" data-percent="0">
+                                    <svg><circle cx="60" cy="60"
+                                            r="50"></circle><circle cx="60"
+                                            cy="60" r="50"
+                                            class="progress-bar-svg"></circle></svg>
+                                    <span class="percentage">0%</span>
+                                </div>
+                                <h4>CHEMISTRY CORE</h4>
+                            </div>
+                            <div class="metric-card">
+                                <div class="circle-progress" id="graph-maths"
+                                    data-percent="0">
+                                    <svg><circle cx="60" cy="60"
+                                            r="50"></circle><circle cx="60"
+                                            cy="60" r="50"
+                                            class="progress-bar-svg"></circle></svg>
+                                    <span class="percentage">0%</span>
+                                </div>
+                                <h4>MATH ENGINE</h4>
+                            </div>
+                        </div>
+                        <div class="metrics-grid secondary-metrics">
+                            <div class="metric-card-linear">
+                                <h5>DAILY QUOTA</h5>
+                                <div class="linear-progress-track"><div
+                                        id="bar-daily" class="linear-fill"
+                                        style="width: 45%;"></div></div>
+                            </div>
+                            <div class="metric-card-linear">
+                                <h5>WEEKLY RATIO</h5>
+                                <div class="linear-progress-track"><div
+                                        id="bar-weekly" class="linear-fill"
+                                        style="width: 60%;"></div></div>
+                            </div>
+                            <div class="metric-card-linear">
+                                <h5>MONTHLY AGGREGATE</h5>
+                                <div class="linear-progress-track"><div
+                                        id="bar-monthly" class="linear-fill"
+                                        style="width: 75%;"></div></div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="updates-tab" class="tab-pane">
+                        <div class="pane-header">
+                            <h2 class="section-title">// RECENT ACTIONS LOG</h2>
+                            <div class="action-controls">
+                                <input type="text" id="log-search"
+                                    placeholder="Search operational telemetry...">
+                                <button id="btn-export-csv" class="btn-tech"><i
+                                        class="fa-solid fa-file-csv"></i>
+                                    CSV</button>
+                            </div>
+                        </div>
+                        <div class="timeline-container" id="timeline-logger">
+                        </div>
+                    </section>
+
+                    <section id="physics-tab" class="tab-pane">
+                        <h2 class="section-title">// PHYSICS CORE ENGINE</h2>
+                        <div class="accordion-container"
+                            id="physics-accordion"></div>
+                    </section>
+
+                    <section id="chemistry-tab" class="tab-pane">
+                        <h2 class="section-title">// CHEMISTRY CORE ENGINE</h2>
+                        <div class="accordion-container"
+                            id="chemistry-accordion"></div>
+                    </section>
+
+                    <section id="maths-tab" class="tab-pane">
+                        <h2 class="section-title">// MATHEMATICAL ANALYSIS
+                            MODULE</h2>
+                        <div class="accordion-container"
+                            id="maths-accordion"></div>
+                    </section>
+
+                    <section id="tasks-tab" class="tab-pane">
+                        <div class="pane-header">
+                            <h2 class="section-title">// GOOGLE-TASK SYSTEM
+                                ENGINE</h2>
+                            <button id="btn-open-task-modal"
+                                class="btn-tech alert-btn"><i
+                                    class="fa-solid fa-plus"></i> NEW
+                                TASK</button>
+                        </div>
+                        <div class="filter-bar">
+                            <input type="text" id="task-search"
+                                placeholder="Search tasks...">
+                            <select id="task-filter-priority">
+                                <option value="ALL">All Priorities</option>
+                                <option value="CRITICAL">Critical</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
+                            <select id="task-sort">
+                                <option value="DUE">Sort by Due Date</option>
+                                <option value="PRIORITY">Sort by
+                                    Priority</option>
+                            </select>
+                        </div>
+                        <div class="tasks-grid-view" id="tasks-list">
+                        </div>
+                    </section>
+
+                    <section id="rules-tab" class="tab-pane">
+                        <h2 class="section-title">// PROTOCOL MAPS: WORKFLOW
+                            EXECUTION PIPELINES</h2>
+                        <div class="flowcharts-wrapper">
+                            <div class="flowchart-block">
+                                <h3><i class="fa-solid fa-atom text-blue"></i>
+                                    Physics Pathway</h3>
+                                <div class="flow-node">Live Lectures</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Short Notes</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">DPP</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">JEE Main PYQs</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">JEE Main Chapter
+                                    Test</div><div class="flow-arrow">↓</div>
+                                <div class="flow-node">Objective-2</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node highlighted">JEE Advanced
+                                    PYQs</div>
+                            </div>
+                            <div class="flowchart-block">
+                                <h3><i
+                                        class="fa-solid fa-flask-vial text-orange"></i>
+                                    Chemistry Pathway</h3>
+                                <div class="flow-node">Live Lectures</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Short Notes</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">DPP</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Concept Builder + Solved
+                                    Examples</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Objective-1</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">JEE Main PYQs</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node specialty">VK Jaiswal
+                                    (Inorganic) / MS Chauhan (Organic)</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">JEE Main Chapter
+                                    Test</div><div class="flow-arrow">↓</div>
+                                <div class="flow-node">Objective-2</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node highlighted">JEE Advanced
+                                    PYQs</div>
+                            </div>
+                            <div class="flowchart-block">
+                                <h3><i
+                                        class="fa-solid fa-calculator text-purple"></i>
+                                    Mathematics Pathway</h3>
+                                <div class="flow-node">Live Lectures</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Short Notes</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">DPP Level-1</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Concept Builder + Solved
+                                    Examples</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">Objective-1</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">JEE Main PYQs</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node">JEE Main Chapter
+                                    Test</div><div class="flow-arrow">↓</div>
+                                <div class="flow-node">DPP Level-2</div><div
+                                    class="flow-arrow">↓</div>
+                                <div class="flow-node highlighted">JEE Advanced
+                                    PYQs</div><div class="flow-arrow">↓</div>
+                                <div class="flow-node">Objective-2</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="settings-tab" class="tab-pane">
+                        <h2 class="section-title">// CORE ENVIRONMENT
+                            CONFIGURATION</h2>
+                        <div class="settings-grid-layout">
+                            <div class="settings-card">
+                                <h3><i class="fa-solid fa-palette"></i>
+                                    Interstellar Color Accent Matrix</h3>
+                                <div class="accent-picker-group">
+                                    <button class="accent-btn blue-accent"
+                                        onclick="setAccent('neon-blue')"></button>
+                                    <button class="accent-btn orange-accent"
+                                        onclick="setAccent('neon-orange')"></button>
+                                    <button class="accent-btn red-accent"
+                                        onclick="setAccent('neon-red')"></button>
+                                    <button class="accent-btn purple-accent"
+                                        onclick="setAccent('neon-purple')"></button>
+                                </div>
+                            </div>
+                            <div class="settings-card">
+                                <h3><i class="fa-solid fa-database"></i> Storage
+                                    Core Engine Operations</h3>
+                                <div class="settings-actions">
+                                    <button class="btn-tech"
+                                        id="btn-export-backup"><i
+                                            class="fa-solid fa-download"></i>
+                                        EXPORT CORE STATE</button>
+                                    <button class="btn-tech"
+                                        id="btn-import-trigger"><i
+                                            class="fa-solid fa-upload"></i>
+                                        IMPORT CORE STATE</button>
+                                    <input type="file" id="file-import-json"
+                                        style="display:none;" accept=".json">
+                                    <button class="btn-tech alert-btn"
+                                        id="btn-clear-logs"><i
+                                            class="fa-solid fa-eraser"></i>
+                                        PURGE METRICS LOG</button>
+                                    <button class="btn-tech critical-btn"
+                                        id="btn-reset-all"><i
+                                            class="fa-solid fa-radiation"></i>
+                                        MASTER RESET ALL DATA</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <div id="task-modal" class="modal-overlay hidden">
+            <div class="modal-box">
+                <h3><i class="fa-solid fa-terminal"></i> APPEND WORK ENGINE
+                    TASK</h3>
+                <div class="modal-body">
+                    <input type="text" id="modal-task-title"
+                        placeholder="Task objective descriptive name" required>
+                    <div class="form-row">
+                        <select id="modal-task-priority">
+                            <option value="LOW">Low Urgency</option>
+                            <option value="MEDIUM">Medium Core</option>
+                            <option value="HIGH">High Criticality</option>
+                            <option value="CRITICAL">Critical Alpha</option>
+                        </select>
+                        <select id="modal-task-repeat">
+                            <option value="ONETIME">One Time Execution</option>
+                            <option value="DAILY">Daily Loop</option>
+                            <option value="WEEKLY">Weekly Iteration</option>
+                            <option value="MONTHLY">Monthly Cycle</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <input type="date" id="modal-task-date" required>
+                        <input type="time" id="modal-task-time" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-tech" id="btn-cancel-task">ABORT</button>
+                    <button class="btn-tech alert-btn"
+                        id="btn-save-task">INITIALIZE TASK</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
