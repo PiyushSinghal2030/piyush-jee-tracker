@@ -1012,3 +1012,37 @@ body {
 .star-empty {
     color: #444; /* जो स्टार्स खाली हैं उनका रंग */
 }
+/* 3D RECTANGULAR STATUS BUBBLES */
+.header-left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+.completed-bubbles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+}
+.status-bubble {
+    font-size: 11px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #00ffcc; /* नियॉन कलर */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.01));
+    padding: 3px 8px;
+    border-radius: 4px; /* रेक्टेंगुलर शेप */
+    border: 1px solid rgba(0, 255, 204, 0.2);
+    border-top: 1px solid rgba(0, 255, 204, 0.45); /* 3D रिफ्लेक्शन */
+    box-shadow: 
+        inset 0 1px 2px rgba(255, 255, 255, 0.12),
+        0 2px 4px rgba(0, 0, 0, 0.5),
+        0 0 5px rgba(0, 255, 204, 0.15);
+    transition: all 0.2s ease;
+    animation: bubblePop 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes bubblePop {
+    0% { transform: scale(0.85); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
