@@ -277,16 +277,24 @@ function createChapterCard(subject, chapterName, checklistItems) {
   // Evaluate initial item state variables
   let totalItems = checklistItems.length;
   let completedCount = 0;
+  let completedBubblesHTML = ""; // पूरे हुए टास्क के बबल्स को स्टोर करने के लिए
+
   checklistItems.forEach((item) => {
-    if (coreState.syllabus[`${subject}_${chapterName}_${item}`])
+    if (coreState.syllabus[`${subject}_${chapterName}_${item}`]) {
       completedCount++;
+      // अगर पहले से टास्क पूरा है, तो उसका 3D रैक्टेंगुलर बबल यहाँ जोड़ें
+      completedBubblesHTML += `<span class="status-bubble">${item}</span>`;
+    }
   });
-  let percentage =
-    totalItems > 0 ? Math.round((completedCount / totalItems) * 100) : 0;
+  
+  let percentage = totalItems > 0 ? Math.round((completedCount / totalItems) * 100) : 0;
 
   card.innerHTML = `
         <div class="accordion-header" onclick="toggleAccordionElement(this)">
-            <h4>${chapterName}</h4>
+            <div class="header-left-content">
+                <h4>${chapterName}</h4>
+                <div class="completed-bubbles-container">${completedBubblesHTML}</div>
+            </div>
             <div class="header-right-meta">
                 <div class="chapter-progress-wrapper"><div class="chapter-progress-fill" style="width: ${percentage}%;"></div></div>
                 <span class="chapter-percentage-lbl">${percentage}%</span>
@@ -297,11 +305,7 @@ function createChapterCard(subject, chapterName, checklistItems) {
             <div class="checklist-grid">
                 ${checklistItems
                   .map((item) => {
-                    let checked = coreState.syllabus[
-                      `${subject}_${chapterName}_${item}`
-                    ]
-                      ? "checked"
-                      : "";
+                    let checked = coreState.syllabus[`${subject}_${chapterName}_${item}`] ? "checked" : "";
                     return `
                         <label class="checkbox-container">
                             <input type="checkbox" ${checked} data-subj="${subject}" data-chap="${chapterName}" data-item="${item}" onchange="handleCheckboxToggle(this)">
@@ -337,6 +341,32 @@ function handleCheckboxToggle(checkbox) {
     chap,
     checkbox.checked ? `✔ COMPLETED: ${item}` : `✘ REMOVED: ${item}`,
   );
+
+  const card = checkbox.closest(".accordion-item");
+  const boxes = card.querySelectorAll(".checklist-grid input");
+  let completed = 0;
+  
+  // रीयल-टाइम में बाहर बबल्स अपडेट करने का लॉजिक
+  const bubblesContainer = card.querySelector(".completed-bubbles-container");
+  let newBubblesHTML = "";
+
+  boxes.forEach((b) => {
+    if (b.checked) {
+      completed++;
+      // जो-जो चेकबॉक्स टिक होगा, उसका 3D बबल स्ट्रिंग में जुड़ेगा
+      newBubblesHTML += `<span class="status-bubble">${b.dataset.item}</span>`;
+    }
+  });
+  
+  // बिना पेज लोड या एकॉर्डियन रीफ्रेश किए तुरंत स्क्रीन पर बबल अपडेट करो
+  if (bubblesContainer) {
+    bubblesContainer.innerHTML = newBubblesHTML;
+  }
+
+  let percentage = Math.round((completed / boxes.length) * 100);
+  card.querySelector(".chapter-progress-fill").style.width = `${percentage}%`;
+  card.querySelector(".chapter-percentage-lbl").innerText = `${percentage}%`;
+}
 
   // Recalculate local chapter card UI instantly
   const card = checkbox.closest(".accordion-item");
