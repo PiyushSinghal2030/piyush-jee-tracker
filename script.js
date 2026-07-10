@@ -782,3 +782,43 @@ function registerSystemPWAServiceWorker() {
       );
   }
 }
+// 1. प्रायोरिटी के हिसाब से स्टार्स काउंट और क्लास का मैप
+const priorityMap = {
+    'CRITICAL': { stars: 5, className: 'priority-critical' },
+    'HIGH':     { stars: 4, className: 'priority-high' },
+    'MEDIUM':   { stars: 3, className: 'priority-medium' },
+    'LOW':      { stars: 1, className: 'priority-low' }
+};
+
+// 2. स्टार्स का HTML जनरेट करने वाला फंक्शन
+function generateStarsHTML(starCount) {
+    let starsHTML = '';
+    // भरे हुए स्टार्स (Filled Stars)
+    for (let i = 0; i < starCount; i++) {
+        starsHTML += '<i class="fa-solid fa-star star-filled"></i> ';
+    }
+    // खाली स्टार्स (Empty Stars to make total 5)
+    for (let i = starCount; i < 5; i++) {
+        starsHTML += '<i class="fa-regular fa-star star-empty"></i> ';
+    }
+    return `<div class="stars-container">${starsHTML}</div>`;
+}
+
+// 3. तुम्हारा टास्क रेंडर करने वाला फंक्शन (उदाहरण स्वरूप)
+function renderTaskCard(task) {
+    // अगर प्रायोरिटी मैच नहीं होती तो डिफ़ॉल्ट सेटिंग्स लें
+    const config = priorityMap[task.priority] || { stars: 0, className: '' };
+    const starsHTML = generateStarsHTML(config.stars);
+
+    return `
+        <div class="task-card ${config.className}">
+            <div class="task-header">
+                <h3>${task.title}</h3>
+                <span class="badge">${task.priority}</span>
+            </div>
+            <p>${task.description || 'No description provided.'}</p>
+            <!-- स्टार्स रेटिंग यहाँ दिखेगी -->
+            ${starsHTML}
+        </div>
+    `;
+}
