@@ -965,3 +965,50 @@ body {
     display: none !important;
   }
 }
+/* टास्क कार्ड का बेस स्टाइल (अगर पहले से है तो बस ये क्लासेस जोड़ना) */
+.task-card {
+    border-left: 5px solid #ccc; /* डिफ़ॉल्ट बॉर्डर */
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background: #1e1e24; /* डार्क थीम के हिसाब से बैकग्राउंड */
+    transition: all 0.3s ease;
+}
+
+/* 1. Critical Priority - Red Theme */
+.task-card.priority-critical {
+    border-left-color: #ff4d4d;
+    background: linear-gradient(145deg, #2b1414, #1e1e24);
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
+}
+.task-card.priority-critical .star-filled { color: #ff4d4d; }
+
+/* 2. High Priority - Orange Theme */
+.task-card.priority-high {
+    border-left-color: #ff9933;
+    background: linear-gradient(145deg, #2b1f14, #1e1e24);
+}
+.task-card.priority-high .star-filled { color: #ff9933; }
+
+/* 3. Medium Priority - Yellow/Blue Theme */
+.task-card.priority-medium {
+    border-left-color: #00ccff;
+    background: linear-gradient(145deg, #14252b, #1e1e24);
+}
+.task-card.priority-medium .star-filled { color: #00ccff; }
+
+/* 4. Low Priority - Green/Grey Theme */
+.task-card.priority-low {
+    border-left-color: #2ecc71;
+    background: linear-gradient(145deg, #142b1b, #1e1e24);
+}
+.task-card.priority-low .star-filled { color: #2ecc71; }
+
+/* स्टार्स का कॉमन स्टाइल */
+.stars-container {
+    margin-top: 8px;
+    font-size: 0.95rem;
+}
+.star-empty {
+    color: #444; /* जो स्टार्स खाली हैं उनका रंग */
+}
